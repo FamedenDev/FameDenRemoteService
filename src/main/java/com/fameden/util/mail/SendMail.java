@@ -31,7 +31,7 @@ public class SendMail implements Runnable {
 	private String SMTP_PORT;
 	private String debug;
 	private String auth;
-	private static final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+	
 	private String MsgTxt = null;
 	private String Subject = null;
 	private String From = null;
@@ -45,7 +45,8 @@ public class SendMail implements Runnable {
 		//String[] at = { "/Users/ravjotsingh/Documents/workspace/Test/hiveresultset.csv" };
 		//SendMail sm = new SendMail("fameden.info@gmail.com", "apple$3401",
 			//	"TestWithAttachement", "Test Message", at, to);
-		SendMail sm = new SendMail("smtp.sendgrid.net","587","true","true","fameden.info","5famedendevelopers","Hi","Test",null,to);
+		SendMail sm = new SendMail(CommonConstants.CLOUD_BEES_SMPT_NAME,CommonConstants.CLOUD_BEES_SMTP_PORT,Boolean.toString(true),Boolean.toString(true),
+				CommonConstants.FAMEDEN_INFO_CLOUD_BEES_USER_NAME,CommonConstants.FAMEDEN_INFO_CLOUD_BEES_PASSWORD,"Hi","Test",null,to);
 		sm.send();
 
 	}
@@ -67,10 +68,10 @@ public class SendMail implements Runnable {
 
 	public SendMail(String from, String password, String sub, String msg,
 			String[] attachments, String[] to) {
-		this.SMTP_HOST_NAME = "smtp.sendgrid.net";
-		this.SMTP_PORT = "587";
-		this.debug = "true";
-		this.auth = "true";
+		this.SMTP_HOST_NAME = CommonConstants.CLOUD_BEES_SMPT_NAME;
+		this.SMTP_PORT = CommonConstants.CLOUD_BEES_SMTP_PORT;
+		this.debug = Boolean.toString(true);
+		this.auth = Boolean.toString(true);
 		this.MsgTxt = msg;
 		this.Subject = sub;
 		this.From = from;
@@ -84,14 +85,14 @@ public class SendMail implements Runnable {
 	}
 
 	public SendMail(String sub, String msg, String[] attachments, String[] to) {
-		this.SMTP_HOST_NAME = "smtp.sendgrid.net";
-		this.SMTP_PORT = "587";
+		this.SMTP_HOST_NAME = CommonConstants.CLOUD_BEES_SMPT_NAME;
+		this.SMTP_PORT = CommonConstants.CLOUD_BEES_SMTP_PORT;
 		this.debug = "true";
 		this.auth = "true";
 		this.MsgTxt = msg;
 		this.Subject = sub;
-		this.From = "fameden.info";
-		this.pwd = "5famedendevelopers";
+		this.From = CommonConstants.FAMEDEN_INFO_CLOUD_BEES_USER_NAME;
+		this.pwd = CommonConstants.FAMEDEN_INFO_CLOUD_BEES_PASSWORD;
 		this.too = to;
 		this.attachements = attachments;
 	}
@@ -111,7 +112,7 @@ public class SendMail implements Runnable {
 		props.put("mail.debug", this.debug);
 		props.put("mail.smtp.port", SMTP_PORT);
 		props.put("mail.smtp.socketFactory.port", SMTP_PORT);
-		props.put("mail.smtp.socketFactory.class", SSL_FACTORY);
+		props.put("mail.smtp.socketFactory.class", CommonConstants.SSL_FACTORY);
 		//props.put("mail.smtp.socketFactory.fallback", "false");
 		final String from1 = from;
 		final String pwd1 = pwd;
