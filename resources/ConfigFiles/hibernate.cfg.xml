@@ -7,10 +7,14 @@
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 		
-		<property name="connection.url">jdbc:postgresql://localhost:5432/FAMEDENDB</property>
+		<!-- <property name="connection.url">jdbc:postgresql://localhost:5432/FAMEDENDB</property>
 		<property name="connection.username">postgres</property>
-		<property name="connection.password">admin</property>
+		<property name="connection.password">admin</property> -->
 		
+		
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    	<property name="hibernate.connection.datasource">jdbc/FAMEDENDB</property>
 		<!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
     	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     	<property name="connection.url">jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com/FameDen</property>
