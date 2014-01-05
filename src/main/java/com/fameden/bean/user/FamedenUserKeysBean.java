@@ -8,6 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * This hibernate bean is responsible of storing the user's sensitive data.
+ * This table is storing the user's internal user id and also the encrypted
+ * password.
+ * This table will only be used for authenticating the user.
+ */
+
 @Entity
 @Table(name = "FAMEDEN_USER_KEYS")
 public class FamedenUserKeysBean implements Serializable {
@@ -16,7 +23,7 @@ public class FamedenUserKeysBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue( strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int famdenInternalUserId;
 	private String password;
 

@@ -9,6 +9,12 @@ import javax.persistence.OneToOne;
 
 import com.fameden.bean.user.FamedenUserBean;
 
+/*
+ * This is the composite embeddable key that will be used in code verification table.
+ * here verification type and fameden external user id is used as comopiste PK. 
+*/
+
+
 @Embeddable
 public class FamedenCodeVerificationCompositePK implements Serializable {
 
