@@ -67,6 +67,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.9</version>
 		</dependency>
+		
+		<dependency>
+		<groupId>hibernate3</groupId>
+		<artifactId>hibernate3-api</artifactId>
+		<version>3.6.10</version>
+		</dependency>
 
 		<!-- Hibernate framework -->
 		<dependency>
@@ -77,6 +83,11 @@
 				<exclusion>
 					<groupId>org.hibernate</groupId>
 					<artifactId>hibernate-commons-annotations</artifactId>
+
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
 
 				</exclusion>
 			</exclusions>
