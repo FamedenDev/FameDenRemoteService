@@ -1,6 +1,8 @@
 package com.fameden.bean.user;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,6 +38,11 @@ public class FamedenUserInfoBean implements Serializable {
 	private String fullName;
 	private String alternateEmailAddress;
 	private String userInterests;
+	private Date dob;
+	private String profileImageURL;
+	private FameDenMeter famedenMeter;
+	private SocialNetworkDetail socialNetworkDetail;
+	private List<Address> userAddress;
 
 	public int getFamedenUserInfoId() {
 		return famedenUserInfoId;
@@ -75,6 +82,46 @@ public class FamedenUserInfoBean implements Serializable {
 
 	public void setUserInterests(String userInterests) {
 		this.userInterests = userInterests;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public String getProfileImageURL() {
+		return profileImageURL;
+	}
+
+	public void setProfileImageURL(String profileImageURL) {
+		this.profileImageURL = profileImageURL;
+	}
+
+	public FameDenMeter getFamedenMeter() {
+		return famedenMeter;
+	}
+
+	public void setFamedenMeter(FameDenMeter famedenMeter) {
+		this.famedenMeter = famedenMeter;
+	}
+
+	public SocialNetworkDetail getSocialNetworkDetail() {
+		return socialNetworkDetail;
+	}
+
+	public void setSocialNetworkDetail(SocialNetworkDetail socialNetworkDetail) {
+		this.socialNetworkDetail = socialNetworkDetail;
+	}
+
+	public List<Address> getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(List<Address> userAddress) {
+		this.userAddress = userAddress;
 	}
 
 }
