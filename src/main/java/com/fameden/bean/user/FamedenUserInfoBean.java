@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -40,6 +41,15 @@ public class FamedenUserInfoBean implements Serializable {
 	private String userInterests;
 	private Date dob;
 	private String profileImageURL;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "famedenSocialNetworkDetailId")
+	private FamdenUserSocialNetworkDetail socialNetworkDetail;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "famedenUserMeterId")
+	private FamdenUserMeter famdenUserMeter;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "FamedenUserAddress")
+	@JoinColumn(name = "famedenUserAddressId")
+	private List<FamedenUserAddress> addressList;
 
 	public int getFamedenUserInfoId() {
 		return famedenUserInfoId;
@@ -95,6 +105,31 @@ public class FamedenUserInfoBean implements Serializable {
 
 	public void setProfileImageURL(String profileImageURL) {
 		this.profileImageURL = profileImageURL;
+	}
+	
+	public FamdenUserSocialNetworkDetail getSocialNetworkDetail() {
+		return socialNetworkDetail;
+	}
+
+	public void setSocialNetworkDetail(
+			FamdenUserSocialNetworkDetail socialNetworkDetail) {
+		this.socialNetworkDetail = socialNetworkDetail;
+	}
+
+	public FamdenUserMeter getFamdenUserMeter() {
+		return famdenUserMeter;
+	}
+
+	public void setFamdenUserMeter(FamdenUserMeter famdenUserMeter) {
+		this.famdenUserMeter = famdenUserMeter;
+	}
+
+	public List<FamedenUserAddress> getAddressList() {
+		return addressList;
+	}
+
+	public void setAddressList(List<FamedenUserAddress> addressList) {
+		this.addressList = addressList;
 	}
 
 }
