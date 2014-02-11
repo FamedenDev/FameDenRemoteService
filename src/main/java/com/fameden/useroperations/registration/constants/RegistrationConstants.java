@@ -19,6 +19,6 @@ public final class RegistrationConstants {
 	
 	public static final String EMAIL_TEMPLATE_URL_PLACE_HOLDER = "URL";
 	
-	public static final String VERIFICATION_PREFIX_URL = "http://localhost:8080/FameDenBackendWS/EmailAddressVerification?emailAddressVerificationCode=";
+	public static final String VERIFICATION_PREFIX_URL = "http://famedenbackendws.famedendev.cloudbees.net/FameDenRemoteService/EmailAddressVerification?emailAddressVerificationCode=";
 
 }
