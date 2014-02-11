@@ -14,6 +14,7 @@ import javax.persistence.Table;
  * For each user and request type only one record will be stored.
 */
 
+
 @Entity
 @Table(name = "FAMEDEN_VERIFICATION")
 public class FamedenCodeVerificationBean implements Serializable {

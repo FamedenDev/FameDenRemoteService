@@ -115,6 +115,4 @@ public class HouseKeepingOperations implements IHouseKeepingOperationsWS {
 
 		return response;
 	}
-
-	
 }

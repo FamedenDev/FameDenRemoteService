@@ -32,7 +32,6 @@ public class SendMail implements Runnable {
 	private String SMTP_PORT;
 	private String debug;
 	private String auth;
-	
 	private String MsgTxt = null;
 	private String Subject = null;
 	private String From = null;
@@ -43,11 +42,9 @@ public class SendMail implements Runnable {
 
 	public static void main(String[] args) {
 		String[] to = { "ravjot28@gmail.com" };
-		//String[] at = { "/Users/ravjotsingh/Documents/workspace/Test/hiveresultset.csv" };
-		//SendMail sm = new SendMail("fameden.info@gmail.com", "apple$3401",
-			//	"TestWithAttachement", "Test Message", at, to);
-		SendMail sm = new SendMail(CommonConstants.CLOUD_BEES_SMPT_NAME,CommonConstants.CLOUD_BEES_SMTP_PORT,Boolean.toString(true),Boolean.toString(true),
-				CommonConstants.FAMEDEN_INFO_CLOUD_BEES_USER_NAME,CommonConstants.FAMEDEN_INFO_CLOUD_BEES_PASSWORD,"Hi","Test",null,to);
+		String[] at = { "/Users/ravjotsingh/Documents/workspace/Test/hiveresultset.csv" };
+		SendMail sm = new SendMail(CommonConstants.FAMEDEN_INFO_GMAIL_USER_NAME, CommonConstants.FAMEDEN_INFO_GMAIL_PASSWORD,
+				"TestWithAttachement", "Test Message", at, to);
 		sm.send();
 
 	}
@@ -69,8 +66,8 @@ public class SendMail implements Runnable {
 
 	public SendMail(String from, String password, String sub, String msg,
 			String[] attachments, String[] to) {
-		this.SMTP_HOST_NAME = CommonConstants.CLOUD_BEES_SMPT_NAME;
-		this.SMTP_PORT = CommonConstants.CLOUD_BEES_SMTP_PORT;
+		this.SMTP_HOST_NAME = CommonConstants.GMAIL_SMTP_HOST_NAME;
+		this.SMTP_PORT = CommonConstants.GMAIL_SMTP_PORT;
 		this.debug = Boolean.toString(true);
 		this.auth = Boolean.toString(true);
 		this.MsgTxt = msg;
@@ -86,14 +83,14 @@ public class SendMail implements Runnable {
 	}
 
 	public SendMail(String sub, String msg, String[] attachments, String[] to) {
-		this.SMTP_HOST_NAME = CommonConstants.CLOUD_BEES_SMPT_NAME;
-		this.SMTP_PORT = CommonConstants.CLOUD_BEES_SMTP_PORT;
-		this.debug = "true";
-		this.auth = "true";
+		this.SMTP_HOST_NAME = CommonConstants.GMAIL_SMTP_HOST_NAME;
+		this.SMTP_PORT = CommonConstants.GMAIL_SMTP_PORT;
+		this.debug = Boolean.toString(true);
+		this.auth = Boolean.toString(true);
 		this.MsgTxt = msg;
 		this.Subject = sub;
-		this.From = CommonConstants.FAMEDEN_INFO_CLOUD_BEES_USER_NAME;
-		this.pwd = CommonConstants.FAMEDEN_INFO_CLOUD_BEES_PASSWORD;
+		this.From = CommonConstants.FAMEDEN_INFO_GMAIL_USER_NAME;
+		this.pwd = CommonConstants.FAMEDEN_INFO_GMAIL_PASSWORD;
 		this.too = to;
 		this.attachements = attachments;
 	}
@@ -114,7 +111,7 @@ public class SendMail implements Runnable {
 		props.put("mail.smtp.port", SMTP_PORT);
 		props.put("mail.smtp.socketFactory.port", SMTP_PORT);
 		props.put("mail.smtp.socketFactory.class", CommonConstants.SSL_FACTORY);
-		//props.put("mail.smtp.socketFactory.fallback", "false");
+		props.put("mail.smtp.socketFactory.fallback", Boolean.toString(false));
 		final String from1 = from;
 		final String pwd1 = pwd;
 		Session session = Session.getDefaultInstance(props,

@@ -44,8 +44,8 @@ public final class CommonConstants {
 
 	public static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	
-	
 	public static final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+	
 	public static final String GMAIL_SMTP_HOST_NAME = "smtp.gmail.com";
 	public static final String CLOUD_BEES_SMPT_NAME = "smtp.sendgrid.net";
 	public static final String GMAIL_SMTP_PORT = "465";

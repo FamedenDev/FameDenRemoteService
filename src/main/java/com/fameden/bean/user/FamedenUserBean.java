@@ -24,6 +24,7 @@ import com.fameden.bean.request.FamedenRequestBean;
  * from and also request Id is used as email verification code to verify user's emailaddress.
  * 
  */
+
 @Entity
 @Table(name = "FAMEDEN_USERS")
 public class FamedenUserBean implements Serializable {

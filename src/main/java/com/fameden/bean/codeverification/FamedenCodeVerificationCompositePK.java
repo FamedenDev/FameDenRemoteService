@@ -14,7 +14,6 @@ import com.fameden.bean.user.FamedenUserBean;
  * here verification type and fameden external user id is used as comopiste PK. 
 */
 
-
 @Embeddable
 public class FamedenCodeVerificationCompositePK implements Serializable {
 
